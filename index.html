@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>360&deg; Image</title>
+  <meta name="description" content="360&deg; Image - A-Frame">
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="js/components/change.js"></script>
+</head>
+
+<body>
+
+
+  <a-scene>
+    <!-- recursos que pueden ser musica o fotos -->
+    <a-assets>
+      <img id="barcelona1" src="./img/BARCELONA1.jpg" alt="barcelona1">
+      <img id="barcelona2" src="./img/BARCELONA2.jpg" alt="barcelona2">
+      <img id="barcelona3" src="./img/BARCELONA3.jpg" alt="barcelona3">
+    </a-assets>
+
+    <!-- cursor para hacer click, puede ser . clase o # id  -->
+    <a-camera>
+      <a-cursor raycaster="objects: .clickable"></a-cursor>
+    </a-camera>
+
+    <a-entity position="0 3 -5">
+      <a-entity>
+        <!-- icono del texto -->
+        <a-box scale="0.25 0.25 0.25" color="red" rotation="0 45 45"
+          animation__position="property: rotation; to: 360 0 0; dir: alternate; dur: 4000; loop: true">
+        </a-box>
+        <!-- plano es decir los recuadros negros -->
+        <a-plane color="black" position="1.3 0 0" width="2" height="0.25"
+          change-site="img: #barcelona1">
+          <a-text font="kelsonsans" color="gray" value="Barcelona 1" align="center"></a-text>
+        </a-plane>
+      </a-entity>
+      <a-entity position="0 0.5 0">
+        <!-- icono del texto -->
+        <a-box scale="0.25 0.25 0.25" color="red" rotation="0 45 45" visible="false"
+          animation__position="property: rotation; to: 360 0 0; dir: alternate; dur: 4000; loop: true">
+        </a-box>
+        <!-- plano es decir los recuadros negros -->
+        <a-plane color="black" position="1.3 0 0" width="2" height="0.25" class="clickable"
+          change-site="img: #barcelona2">
+          <a-text font="kelsonsans" value="Barcelona 2" align="center"></a-text>
+        </a-plane>
+      </a-entity>
+      <a-entity position="0 1 0">
+        <!-- icono del texto -->
+        <a-box scale="0.25 0.25 0.25" color="red" rotation="0 45 45" visible="false"
+          animation__position="property: rotation; to: 360 0 0; dir: alternate; dur: 4000; loop: true">
+        </a-box>
+        <!-- plano es decir los recuadros negros -->
+        <a-plane color="black" position="1.3 0 0" width="2" height="0.25" class="clickable"
+          change-site="img: #barcelona3">
+          <a-text font="kelsonsans" value="Barcelona 3" align="center"></a-text>
+        </a-plane>
+      </a-entity>
+    </a-entity>
+
+    <a-sky id="my-sky" src="#barcelona1" rotation="0 -130 0"></a-sky>
+  </a-scene>
+</body>
+
+</html>
