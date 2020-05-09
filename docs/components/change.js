@@ -28,6 +28,9 @@ AFRAME.registerComponent('change-site', {
         Object.keys(allAPlane).forEach(function(key){
           if(allAPlane[key] != thisAPlane) {
             allAPlane[key].classList.add("clickable");
+            allAPlane[key].setAttribute("visible", "true");
+          }else{
+            allAPlane[key].setAttribute("visible", "false");
           }
         });
   
@@ -36,8 +39,8 @@ AFRAME.registerComponent('change-site', {
           allABox[key].setAttribute("visible", "false");
         });
   
-        var parentEntityABox = parentEntity.querySelector("a-box");
-        parentEntityABox.setAttribute("visible", "true");
+        // var parentEntityABox = parentEntity.querySelector("a-box");
+        // parentEntityABox.setAttribute("visible", "true");
   
         var allAText = grandParentEntity.querySelectorAll("a-text");
         Object.keys(allAText).forEach(function(key){
